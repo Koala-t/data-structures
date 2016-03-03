@@ -20,7 +20,7 @@ Queue.queueMethods = {
     var temp = this.storage[0];
     
     for(var i=1; i<= this.count; i++){
-      this.storage[i] = this.storage[i-1];
+      this.storage[i-1] = this.storage[i];
     }
     
     delete this.storage[this.count];
