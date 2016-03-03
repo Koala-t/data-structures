@@ -16,9 +16,11 @@ var Queue = function() {
       count --;
     }
     var temp = storage[0];
-    for (var key in storage){
-      storage[key]=storage[key-1];
-    } 
+    for (var i = 1; i <= count; i++){
+      storage[i-1] = storage[i];
+    }
+    delete storage[count];
+
     return temp;
   };
 
