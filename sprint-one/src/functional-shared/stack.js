@@ -2,11 +2,11 @@ var Stack = function() {
   var someInstance = {};
   someInstance.count = 0;
   someInstance.storage = {};
-  extend(someInstance, Stack.stackMethods);
+  extend(someInstance, stackMethods);
   return someInstance;
 };
 
-Stack.stackMethods = {
+var stackMethods = {
   size : function(){return this.count;},
 
   push : function(value){

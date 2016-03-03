@@ -1,12 +1,12 @@
 var Queue = function() {
   var someInstance = {};
+  extend(someInstance, queueMethods);
   someInstance.count = 0;
   someInstance.storage = {};
-  extend(someInstance, Queue.queueMethods);
   return someInstance;
 };
 
-Queue.queueMethods = {
+var queueMethods = {
   size: function(){
     return this.count;
   },
