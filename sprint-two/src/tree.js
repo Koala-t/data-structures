@@ -17,6 +17,33 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
+  //assign a placeholder variable to false
+  var match = false;
+  // define recursive function to search tree 
+  var searchTree = function(node) {
+    // Terminal case
+    // if children array empty, then return placeholder
+    if (this.children === []) {
+      return match;
+    } else {
+    // Iterate through children of node we're inspecting
+      for (var i = 0; i < node.children.length; i++) {
+        //Base case
+        // if target matches child node value
+        if (target === node.children[i]) {
+          // reassign placeholder to true and return
+          match = true;
+          return match;
+        } else {
+          // Recursive case  
+          // call recursive function, passing in child node
+          searchTree(node.children[i]);
+        }
+      }
+    }
+  };
+  //invoke the recursive function using master node
+  searchTree(this);
 };
 
 // extend function
