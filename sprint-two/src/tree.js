@@ -3,8 +3,7 @@ var Tree = function(value) {
   newTree.value = value;
   extend(newTree, treeMethods);
 
-  // your code here
-  newTree.children = [];  // fix me
+  newTree.children = [];  
 
   return newTree;
 };
@@ -21,29 +20,37 @@ treeMethods.contains = function(target) {
   var match = false;
   // define recursive function to search tree 
   var searchTree = function(node) {
+    // check node itself for target value
+    if(target === node.value){
+      match = true;
+      return;
+    }
+
     // Terminal case
-    // if children array empty, then return placeholder
+    // if children array empty, return to end searchTree
     if (this.children === []) {
-      return match;
-    } else {
+      return;
+    } 
     // Iterate through children of node we're inspecting
       for (var i = 0; i < node.children.length; i++) {
         //Base case
         // if target matches child node value
-        if (target === node.children[i]) {
+        if (target === node.children[i].value) {
           // reassign placeholder to true and return
           match = true;
-          return match;
+          return;
         } else {
           // Recursive case  
           // call recursive function, passing in child node
           searchTree(node.children[i]);
         }
       }
-    }
+    
   };
   //invoke the recursive function using master node
   searchTree(this);
+  // return match
+  return match;
 };
 
 // extend function
