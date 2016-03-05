@@ -21,7 +21,7 @@ treeMethods.contains = function(target) {
   // define recursive function to search tree 
   var searchTree = function(node) {
     // check node itself for target value
-    if(target === node.value){
+    if (target === node.value) {
       match = true;
       return;
     }
@@ -32,19 +32,19 @@ treeMethods.contains = function(target) {
       return;
     } 
     // Iterate through children of node we're inspecting
-      for (var i = 0; i < node.children.length; i++) {
-        //Base case
-        // if target matches child node value
-        if (target === node.children[i].value) {
-          // reassign placeholder to true and return
-          match = true;
-          return;
-        } else {
-          // Recursive case  
-          // call recursive function, passing in child node
-          searchTree(node.children[i]);
-        }
+    for (var i = 0; i < node.children.length; i++) {
+      //Base case
+      // if target matches child node value
+      if (target === node.children[i].value) {
+        // reassign placeholder to true and return
+        match = true;
+        return;
+      } else {
+        // Recursive case  
+        // call recursive function, passing in child node
+        searchTree(node.children[i]);
       }
+    }
     
   };
   //invoke the recursive function using master node
@@ -54,13 +54,10 @@ treeMethods.contains = function(target) {
 };
 
 // extend function
-var extend = function(to, from){
-  for (var key in from){
+var extend = function(to, from) {
+  for (var key in from) {
     to[key] = from[key];
   }
 };
 
 
-/*
- * Complexity: What is the time complexity of the above functions?
- */

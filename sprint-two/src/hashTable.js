@@ -12,20 +12,20 @@ HashTable.prototype.insert = function(k, v) {
   // check if bucket exists at that index
     
   // if bucket does not exist, create bucket array
-  if (this._storage.get(index) === undefined) {
-    // push in key, value tuple
-    var bucket = [[k, v]];
-    // add bucket as value in storage
-    this._storage.set(index, bucket);
-  } else {
-    // if bucket does exist, loop thru bucket to check for key
-    for(i=0, i<bucket.length, i++){
-      // if key exists, overwrite value
-      if(bucket[i][0]===k){bucket[i][1]=v}
-      // otherwise, add tuple to end of array
-      else bucket.push([k,v]);
-    }
-  }
+  // if (this._storage.get(index) === undefined) {
+  //   // push in key, value tuple
+  //   var bucket = [[k, v]];
+  //   // add bucket as value in storage
+  //   this._storage.set(index, bucket);
+  // } else {
+  //   // if bucket does exist, loop thru bucket to check for key
+  //   for(i=0, i<bucket.length, i++){
+  //     // if key exists, overwrite value
+  //     if(bucket[i][0]===k){bucket[i][1]=v}
+  //     // otherwise, add tuple to end of array
+  //     else bucket.push([k,v]);
+  //   }
+  // }
 
   
   this._storage.set(index, [k, v]);
