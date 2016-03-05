@@ -43,7 +43,37 @@ binaryTreeMethods.insert = function(value) {
   // call walkTree on master node
   walkTree(this);
 };
+
 binaryTreeMethods.contains = function(target) {
+  //declare a match variable and set it to false
+  var match = false;
+  //declare a walkTree function, pass it a node
+  var walkTree = function(node) {
+    //if the target is equal to the node's value
+    if (target === node.value) {
+      //reassign the match variable
+      match = true;
+    //otherwise, if target is less than the node's value
+    } else if (target < node.value) {
+      //if node's left property is not null
+      if (node.left !== null) {
+        //invoke walkTree and pass it node's left property
+        walkTree(node.left);
+      }
+    //otherwise, if target is greater than the node's value
+    } else if (target > node.value) {
+      //if node's right property is not null
+      if (node.right !== null) {
+        //invoke  walkTree and pass it node's right property
+        walkTree(node.right);
+      }
+    }
+  };
+  //invoke walkTree, passing it the master node
+  walkTree(this);
+  //return the match variable
+  return match;
+
 
 };
 
