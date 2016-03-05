@@ -78,7 +78,23 @@ binaryTreeMethods.contains = function(target) {
 };
 
 binaryTreeMethods.depthFirstLog = function(cb) {
-
+  // function expression for walkTree, takes in a node
+  var walkTree = function(node) {
+    // apply callback to node's value
+    cb(node.value);
+    // check if node's left property is not null
+    if (node.left !== null) {
+      // invoke walkTree on node's left property
+      walkTree(node.left);
+    } else {
+    // check if node's right property is not null
+      if (node.right !== null) {
+      // invoke walkTree on node's right property
+      walkTree(node.right);
+      }
+    }
+  };
+  walkTree(this);  
 };
 
 
