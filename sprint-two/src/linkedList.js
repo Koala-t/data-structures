@@ -12,9 +12,9 @@ var LinkedList = function() {
       //otherwise
     } else {
     // generate new node and set it to list.tail.next temporarily
-    list.tail.next = Node(value);
+      list.tail.next = Node(value);
     // set list.tail to the newly generated node
-    list.tail = list.tail.next;
+      list.tail = list.tail.next;
     }
 
   };
@@ -24,9 +24,9 @@ var LinkedList = function() {
     //test if empty
     if (list.head !== null) {
     // store head to be removed 
-    var formerHead = list.head;
-    list.head = list.head.next;
-    return formerHead.value;
+      var formerHead = list.head;
+      list.head = list.head.next;
+      return formerHead.value;
     }
   };
 
@@ -40,13 +40,13 @@ var LinkedList = function() {
           found = true;
           return found;
         } else {
-          return search(suspect.next);
+          search(suspect.next);
         }
       }
       return found;
     };
-    return search(list.head);
-
+    search(list.head);
+    return found;
   };
   return list;
 };
