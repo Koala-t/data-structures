@@ -25,6 +25,10 @@ stackMethods.pop = function(){
   if(this.count > 0){
     this.count--;
   }
-  return this.storage[this.count];
+
+  //this is the only stack function which will remove items from the stack
+  var temp = this.storage[this.count];
+  delete this.storage[this.count];
+  return temp;
 };
 
